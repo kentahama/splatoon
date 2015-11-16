@@ -19,7 +19,7 @@ def create(request):
                     comment=comment)
     except (KeyError):
         return render_to_response('recruit/index.html', {
-            'error_message': "* invalid parameters *"}, context_instance=RequestContext(request))
+            'error_message': "invalid parameters"}, context_instance=RequestContext(request))
     else:
         room.save()
         room.user_set.create(name=creator, is_creator=True)
@@ -35,16 +35,17 @@ def join(request, room_id):
     room = get_object_or_404(Room, pk=room_id)
     try:
         name = request.POST['name']
+        if not name: raise KeyError
     except (KeyError):
         return render_to_response('recruit/room.html', {
             'room': room,
-            'error_message': "* invalid parameters *"
+            'error_message': "invalid name"
         }, context_instance=RequestContext(request))
     else:
         if room.is_full():
             return render_to_response('recruit/room.html', {
                 'room': room,
-                'error_message': "* invalid operation *"
+                'error_message': "invalid operation"
             }, context_instance=RequestContext(request))
         room.user_set.create(name=name, is_creator=False)
         return HttpResponseRedirect(reverse('recruit.views.room', args=(room.id,)))

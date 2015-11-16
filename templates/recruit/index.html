@@ -3,7 +3,9 @@
 
 {% block content %}
 <h1>タグマ・プラベ部屋作成</h1>
-{% if error_message %}<p><strong>入力が不正です！</strong></p>{% endif %}
+{% if error_message %}<p><strong>
+{% if error_message == "invalid parameters" %}入力が不正です！{% endif %}</strong></p>
+{% endif %}
 <form action="/room/create/" method="post">
 {% csrf_token %}
 <p><select name="type">

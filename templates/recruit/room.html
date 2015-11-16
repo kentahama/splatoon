@@ -23,9 +23,14 @@
 {% else %}
 <form action="/room/{{ room.id }}/join/" method="post">
   {% csrf_token %}
+  {% if error_message %}<p class="center"><strong>
+  {% if error_message == "invalid name" %}↓名前を入力してね{% endif %}
+  {% if error_message == "invalid operation" %}この部屋はもう満員だよ{% endif %}
+  </strong></p>
+  {% endif %}
   <p class="center"><input type="text" name="name" value="" /></p>
   <p class="left"><input type="submit" value="イカやるよ！" class="button" /></p>
 </form>
-</div>
 {% endif %}
+</div>
 {% endblock %}
