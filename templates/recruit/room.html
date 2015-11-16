@@ -2,12 +2,17 @@
 {% block title %}Splatoon タグマorプラベ募集サービス [{{ room.creator.name }}さんの部屋]{% endblock%}
 
 {% block content %}
-<h1>イカやろうぜ！</h1>
-{% if not room.is_full %}<p><strong>あと{{ room.remaining }}人募集！</strong></p>{% endif %}
+<p class="nobottom">
+{% if room.type == "T" %}タッグマッチで{% endif %}
+{% if room.type == "P" %}プライベートマッチで{% endif %}
+</p>
+<h1 class="big ikamodoki notop">イカやろうぜ！</h1>
+{% if not room.is_full %}<p class="medium"><strong>あと{{ room.remaining }}人募集！</strong></p>{% endif %}
 <p>{{ room.comment }}</p>
-<p>{{ room.creator.name }}さんより</p>
-<p>{{ room.member_num }} / {{ room.member_max }}</p>
-参加する人：
+<p class="small right">{{ room.creator.name }}さんより</p>
+<div>
+<p class="medium ikamodoki">{{ room.member_num }} / {{ room.member_max }}</p>
+<p>参加する人：</p>
 <ul>
   {% for member in room.members %}
   <li>{{ member.name }}</li>
@@ -18,8 +23,9 @@
 {% else %}
 <form action="/room/{{ room.id }}/join/" method="post">
   {% csrf_token %}
-  <p><input type="text" name="name" value="" /></p>
-  <p><input type="submit" value="参加する！" /></p>
+  <p class="center"><input type="text" name="name" value="" /></p>
+  <p class="left"><input type="submit" value="イカやるよ！" class="button" /></p>
 </form>
+</div>
 {% endif %}
 {% endblock %}

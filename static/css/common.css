@@ -1,3 +1,68 @@
+@charset "utf-8";
+@font-face {
+font-family: ikamodoki;
+src: url("/static/fonts/ikamodoki1_0.ttf") format("truetype");
+}
+
+html, body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "Droid Sans", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+@media screen and (min-width: 480px) {
 div.container {
-    width: 520px;
+    margin: 30px 50px;
+}
+}
+@media screen and (min-width: 520px) {
+div.container {
+    margin: 30px 50px;
+    width:520px;
+}
+}
+
+.ikamodoki {
+    font-family: ikamodoki;
+}
+.big {
+    font-size: 3em;
+}
+.medium {
+    font-size: 1.4em;
+}
+.small {
+    font-size: 0.5em;
+}
+.notop {
+    margin-top: 0px;
+}
+.nobottom {
+    margin-bottom: 0px;
+}
+.left {
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+button, .button {
+    font-family: ikamodoki;
+    font-size:1.4em;
+    text-decoration: none;
+    height: 50px;
+    width:210px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background-color: #FF6E00;
+    color: #fff;
 }

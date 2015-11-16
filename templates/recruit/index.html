@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}Splatoon タグマorプラベ募集サービス [部屋を作成]{% endblock%}
+{% block title %}Splatoon タグマ・プラベ募集サービス [部屋を作成]{% endblock%}
 
 {% block content %}
-<h1>タグマorプラベ募集</h1>
+<h1>タグマ・プラベ部屋作成</h1>
 {% if error_message %}<p><strong>入力が不正です！</strong></p>{% endif %}
 <form action="/room/create/" method="post">
 {% csrf_token %}
@@ -13,6 +13,6 @@
 <p>作成者:<input type="text" name="creator" /></p>
 <p>説明文(何時からなど):<br>
 <textarea name="comment" cols="40" rows="4" placeholder="11時からタグマしようぜ！"></textarea></p>
-<p><input type="submit" value="部屋を作る！" /></p>
+<p><input type="submit" value="ヘヤをつくる！" class="button" /></p>
 </form>
 {% endblock %}
