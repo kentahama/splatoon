@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Splatoon タグマorプラベ募集サービス [{{ room.creator.name }}さんの部屋]{% endblock%}
+
+{% block content %}
+<h1>イカやろうぜ！</h1>
+{% if not room.is_full %}<p><strong>あと{{ room.remaining }}人募集！</strong></p>{% endif %}
+<p>{{ room.comment }}</p>
+<p>{{ room.creator.name }}さんより</p>
+<p>{{ room.member_num }} / {{ room.member_max }}</p>
+参加する人：
+<ul>
+  {% for member in room.members %}
+  <li>{{ member.name }}</li>
+  {% endfor %}
+</ul>
+{% if room.is_full %}
+<p>この部屋はもう満員です。</p>
+{% else %}
+<form action="/room/{{ room.id }}/join/" method="post">
+  {% csrf_token %}
+  <p><input type="text" name="name" value="" /></p>
+  <p><input type="submit" value="参加する！" /></p>
+</form>
+{% endif %}
+{% endblock %}

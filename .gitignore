@@ -1,3 +1,6 @@
+# database file
+db.sqlite3
+
 # emacs bakupfile
 *~
 
