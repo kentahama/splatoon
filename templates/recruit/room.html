@@ -2,6 +2,7 @@
 {% block title %}Splatoon タグマorプラベ募集サービス [{{ room.creator.name }}さんの部屋]{% endblock%}
 
 {% block content %}
+<p class="small right">{{ room.createdate }}作成</p>
 <p class="nobottom">
 {% if room.type == "T" %}タッグマッチで{% endif %}
 {% if room.type == "P" %}プライベートマッチで{% endif %}
@@ -29,7 +30,7 @@
   </strong></p>
   {% endif %}
   <p class="center"><input type="text" name="name" value="" /></p>
-  <p class="left"><input type="submit" value="イカやるよ！" class="button" /></p>
+  <p><input type="submit" value="イカやるよ！" class="button" /></p>
 </form>
 {% endif %}
 </div>
