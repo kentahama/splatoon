@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Splatoon タグマorプラベ募集サービス [{{ room.creator.name }}さんの部屋]{% endblock%}
+{% block title %}【{% if room.type == "T" %}タグマ{% endif %}{% if room.type == "P" %}プラベ{% endif %}】イカしようぜ！ [{{ room.creator.name }}さんの部屋]{% endblock%}
 
 {% block content %}
 <p class="notop small right">{{ room.createdate }}作成</p>
@@ -7,10 +7,22 @@
 {% if room.type == "T" %}タッグマッチで{% endif %}
 {% if room.type == "P" %}プライベートマッチで{% endif %}
 </p>
-<h1 class="big ikamodoki notop">イカやろうぜ！</h1>
+<h1 class="big ikamodoki notop">イカしようぜ！</h1>
 {% if not room.is_full %}<p class="medium"><strong>あと{{ room.remaining }}人募集！</strong></p>{% endif %}
 <p>{{ room.comment }}</p>
 <p class="small right">{{ room.creator.name }}さんより</p>
+{% if not room.is_full %}<div>
+<!-- Twitter -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="【{% if room.type == 'T' %}タグマ{% endif %}{% if room.type == 'P' %}プラベ{% endif %}】イカしようぜ！【募集】" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!-- Line -->
+<span>
+<script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
+<script type="text/javascript">
+new media_line_me.LineButton({"pc":true,"lang":"ja","type":"b","text":"【{% if room.type == 'T' %}タグマ{% endif %}{% if room.type == 'P' %}プラベ{% endif %}】イカしようぜ！【募集】","withUrl":true});
+</script>
+</span>
+</div>{% endif %}
 <div>
 <p class="medium ikamodoki">{{ room.member_num }} / {{ room.member_max }}</p>
 <p>参加する人：</p>
@@ -30,7 +42,7 @@
   </strong></p>
   {% endif %}
   <p class="center"><input type="text" name="name" value="" /></p>
-  <p><input type="submit" value="イカやるよ！" class="button" /></p>
+  <p><input type="submit" value="イカするよ！" class="button" /></p>
 </form>
 {% endif %}
 </div>

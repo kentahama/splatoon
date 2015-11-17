@@ -2,12 +2,15 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>{% block title %}Splatoon タグマorプラベ募集サービス{% endblock%}</title>
+<title>{% block title %}イカしようぜ！ Splatoon タグマ・プラベ募集サービス{% endblock%}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="{% static 'css/common.css' %}" rel="stylesheet">
 {% block extrahead %}{% endblock %}
 </head>
 <body>
+<div class="header">
+<a href="/" class="logo ikamodoki">イカしようぜ！</a>
+</div>
 <div class="container">
 {% block content %}
   {{ content }}

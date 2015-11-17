@@ -4,29 +4,50 @@ font-family: ikamodoki;
 src: url("/static/fonts/ikamodoki1_0.ttf") format("truetype");
 }
 
-html, body {
+html {
     background-color: #000;
     color: #fff;
     font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "Droid Sans", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", sans-serif;
+    margin: 0 auto;
+    background-image: url('/static/img/background.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 0 auto;
+    height: 100%;
 }
 
 @media screen and (min-width: 480px) {
-body {
-    margin: 10px auto;
-}
+
 }
 @media screen and (min-width: 520px) {
 body {
-    margin: 10px auto;
     width:520px;
 }
 }
+
+div.header {
+    background-color: #333;
+    height: 60px;
+}
+
+.logo {
+    text-decoration: none;
+    color: #ddd;
+    position: absolute;
+    padding: 7px 15px;
+    font-size: 2em;    
+}
+
 
 .ikamodoki {
     font-family: ikamodoki;
 }
 .big {
-    font-size: 3em;
+    font-size: 4em;
 }
 .medium {
     font-size: 1.4em;
