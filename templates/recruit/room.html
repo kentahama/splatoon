@@ -2,8 +2,8 @@
 {% block title %}Splatoon タグマorプラベ募集サービス [{{ room.creator.name }}さんの部屋]{% endblock%}
 
 {% block content %}
-<p class="small right">{{ room.createdate }}作成</p>
-<p class="nobottom">
+<p class="notop small right">{{ room.createdate }}作成</p>
+<p class="notop nobottom">
 {% if room.type == "T" %}タッグマッチで{% endif %}
 {% if room.type == "P" %}プライベートマッチで{% endif %}
 </p>
