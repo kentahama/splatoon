@@ -26,7 +26,7 @@ class Room(models.Model):
     def is_full(self):
         return self.member_num() >= self.member_max()
     def __unicode__(self):
-        return str(self.id) + ", " + self.type
+        return " ".join([str(self.id), self.get_type_display(), self.creator().name])
 
 class User(models.Model):
     room = models.ForeignKey(Room)
